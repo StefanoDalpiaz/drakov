@@ -16,6 +16,11 @@ We have setup a google group to assist with the answering of questions any users
 It can be found at [https://groups.google.com/forum/?hl=en#!forum/drakov-api-server](https://groups.google.com/forum/?hl=en#!forum/drakov-api-server)
 
 
+## MSON Support via Attribute elements
+
+Since version 0.1.12 MSON support is now provided.
+
+
 ## Note on Dependencies
 
 You will need to have `g++` and `make` installed on your system so `npm install` can compile the [Snow Crash](https://github.com/apiaryio/snowcrash) library.
@@ -198,7 +203,7 @@ Due to protagonist parsing being async, we need to setup the middleware with an 
 
 **Q:** If I have multiple requests/responses on the same API endpoint, which response will I get?
 
-**A:** Drakov will respond first with any responses that have a JSON schema with the first response matching the request body for that API endpoint. You can request a specific response by adding a `Prefer` header to the request in the form `Prefer:status=XXX` where `XXX` is the status code of the desired response.
+**A:** Drakov will respond first with any responses that have a JSON schema with the first response matching the request body for that API endpoint. You can request a specific response by adding a `Prefer` header to the request in the form `Prefer:status=XXX` where `XXX` is the status code of the desired response.  See [issue #88](https://github.com/Aconex/drakov/issues/88) for details.
 
 
 **Q:** If I have multiple responses on a single request, which response will I get?
@@ -229,11 +234,11 @@ If you have any ideas or questions you are welcome to post an issue.
 * We don't have any guidelines for how to log, except that you should have your type a different colour from your actual message (better logging is in our roadmap)
 
 ### Functionality that adds CLI arguments
-* Make sure you add the new argument property to the `optimistOptions` object in the [arguments module](https://github.com/Aconex/drakov/blob/master/lib/arguments.js#L3)
+* Make sure you add the new argument property to the `yargsConfigOptions` object in the [arguments module](https://github.com/Aconex/drakov/blob/master/lib/arguments.js#L3)
 
 ### Middleware functionality
-* For functionality that does something with the request object add code to the [request module](https://github.com/Aconex/drakov/blob/master/lib/request.js)
-* For functionality that does something with the response object add code to the [response module](https://github.com/Aconex/drakov/blob/master/lib/response.js)
+* For functionality that does something with the request object add code to the [request module](https://github.com/Aconex/drakov/blob/master/lib/middleware/request.js)
+* For functionality that does something with the response object add code to the [response module](https://github.com/Aconex/drakov/blob/master/lib/middleware/response.js)
 
 ### Testing
 * If your contribution deals with API Blueprint request/response behaviour add an example into an existing or new markdown file in the `test/example/md` directory
