@@ -25,15 +25,15 @@
   "dependencies": {
     "async": "^1.4.2",
     "colors": "^1.1.0",
-    "drafter.js": "^2.0.0-pre.0",
+    "drafter": "git+https://github.com/apiaryio/drafter.git",
     "express": "^4.12.3",
     "glob": "^5.0.15",
     "jade": "^1.11.0",
     "lodash": "^3.8.0",
     "path-to-regexp": "^1.0.3",
-    "qs": "^5.1.0",
     "restify": "^4.0.0",
     "tv4": "^1.1.9",
+    "qs": "^5.1.0",
     "yargs": "^3.26.0"
   },
   "devDependencies": {
